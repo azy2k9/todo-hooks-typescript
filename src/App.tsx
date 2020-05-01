@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import TodoList from './components/TodoList/TodoList';
 import './App.css';
+import AddTodo from './components/AddTodo/AddTodo';
 
 export interface TodoType {
   id: number
@@ -16,8 +17,20 @@ const App = () => {
     { id: 4, todo: 'Master React', completed_status: false },
   ]);
 
+  const handleAddTodo = (todo: string) => {
+    const newTodo: TodoType = {
+      id: Math.max.apply(null, todos.map(todo => todo.id)) + 1,
+      completed_status: false,
+      todo
+    }
+    setTodos(prevTodos => [...prevTodos, newTodo])
+  }
+
   return (
-    <TodoList setTodos={setTodos} todos={todos} />
+    <>
+      <AddTodo handleAddTodo={handleAddTodo} />
+      <TodoList setTodos={setTodos} todos={todos} />
+    </>
   )
 }
 

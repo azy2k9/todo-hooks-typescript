@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { TodoType } from '../../App'
 
 export interface Props {
@@ -7,10 +7,6 @@ export interface Props {
 }
 
 const Todo = ({ todo, toggleCompletedStatus }: Props) => {
-    useEffect(() => {
-        console.log(todo);
-    }, [todo]);
-    
     return (
         <li>
             {`${todo.todo} - ${todo.completed_status ? 'Completed' : 'Incomplete'}`}
