@@ -4,7 +4,7 @@ interface IProps {
     handleAddTodo: (todo: string) => void
 }
 
-const AddTodo = ({ handleAddTodo }: IProps) => {
+const AddTodo: React.FC<IProps> = ({ handleAddTodo }) => {
     const [inputVal, setInputVal] = useState<string>('hell');
     const handleAdd = () => {
         handleAddTodo(inputVal); 

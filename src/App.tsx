@@ -3,12 +3,6 @@ import TodoList from './components/TodoList/TodoList';
 import './App.css';
 import AddTodo from './components/AddTodo/AddTodo';
 
-export interface TodoType {
-  id: number
-  todo: string
-  completed_status: boolean
-}
-
 const App = () => {
   const [todos, setTodos] = useState<TodoType[]>([
     { id: 1, todo: 'Clean the car', completed_status: false },
@@ -33,6 +27,5 @@ const App = () => {
     </>
   )
 }
-
 
 export default App;

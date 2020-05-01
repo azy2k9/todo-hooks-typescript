@@ -1,13 +1,12 @@
 import React from 'react'
 import Todo from '../Todo/Todo'
-import { TodoType } from '../../App';
 
-export interface Props {
+export interface IProps {
     todos: TodoType[]
     setTodos: Function
 }
 
-const TodoList = ({ todos, setTodos }: Props) => {
+const TodoList: React.FC<IProps> = ({ todos, setTodos }) => {
     const toggleCompletedStatus = (todo: TodoType) => {
         setTodos((prevTodos: TodoType[]) => {
             return prevTodos.reduce((acc: TodoType[], current: TodoType) => { 

@@ -1,12 +1,11 @@
 import React from 'react'
-import { TodoType } from '../../App'
 
-export interface Props {
+export interface IProps {
     todo: TodoType
     toggleCompletedStatus: Function
 }
 
-const Todo = ({ todo, toggleCompletedStatus }: Props) => {
+const Todo: React.FC<IProps> = ({ todo, toggleCompletedStatus }) => {
     return (
         <li>
             {`${todo.todo} - ${todo.completed_status ? 'Completed' : 'Incomplete'}`}
