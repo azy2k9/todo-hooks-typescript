@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import TodoList from './components/TodoList/TodoList';
 import './App.css';
-import AddTodo from './components/AddTodo/AddTodo';
+import AddTodo from './components/AddTodo';
 
 const App = () => {
   const [todos, setTodos] = useState<TodoType[]>([
