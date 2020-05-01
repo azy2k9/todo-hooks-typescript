@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react'
+import TodoList from './components/TodoList/TodoList';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export interface TodoType {
+  id: number
+  todo: string
+  completed_status: boolean
 }
+
+const App = () => {
+  const [todos, setTodos] = useState<TodoType[]>([
+    { id: 1, todo: 'Clean the car', completed_status: false },
+    { id: 2, todo: 'Buy a pressure washer', completed_status: false },
+    { id: 3, todo: 'Learn TypeScript', completed_status: false },
+    { id: 4, todo: 'Master React', completed_status: false },
+  ]);
+
+  return (
+    <TodoList setTodos={setTodos} todos={todos} />
+  )
+}
+
 
 export default App;
