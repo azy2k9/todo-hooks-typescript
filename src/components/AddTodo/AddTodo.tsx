@@ -5,7 +5,7 @@ interface IProps {
 }
 
 const AddTodo: React.FC<IProps> = ({ handleAddTodo }) => {
-    const [inputVal, setInputVal] = useState<string>('hell');
+    const [inputVal, setInputVal] = useState<string>('');
     const handleAdd = () => {
         handleAddTodo(inputVal); 
         setInputVal('');
@@ -16,13 +16,13 @@ const AddTodo: React.FC<IProps> = ({ handleAddTodo }) => {
                 value={inputVal}
                 onChange={event => setInputVal(event.target.value)}
                 onKeyPress={event => {
-                    if (event.key === 'Enter') {
+                    if (event.key === 'Enter' && inputVal.length > 0) {
                         handleAdd();
                     }
                 }}
                 placeholder="Enter a todo"
             />
-            <button onClick={handleAdd}>Add a todo</button>
+            <button onClick={handleAdd} disabled={inputVal.length === 0}>Add a todo</button>
         </div>
     )
 }
