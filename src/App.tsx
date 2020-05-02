@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import TodoList from './components/TodoList/TodoList';
 import './App.css';
 import AddTodo from './components/AddTodo';
@@ -13,19 +13,23 @@ const App = () => {
 
   const handleAddTodo = (todo: string) => {
     const newTodo: TodoType = {
-      id: Math.max.apply(null, todos.map(todo => todo.id)) + 1,
+      id:
+        Math.max.apply(
+          null,
+          todos.map((todo: TodoType) => todo.id)
+        ) + 1,
       completed_status: false,
-      todo
-    }
-    setTodos(prevTodos => [...prevTodos, newTodo])
-  }
+      todo,
+    };
+    setTodos((prevTodos: TodoType[]) => [...prevTodos, newTodo]);
+  };
 
   return (
     <>
       <AddTodo handleAddTodo={handleAddTodo} />
       <TodoList setTodos={setTodos} todos={todos} />
     </>
-  )
-}
+  );
+};
 
 export default App;
