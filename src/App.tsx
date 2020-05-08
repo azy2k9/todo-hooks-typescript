@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import TodoList from './components/TodoList/TodoList';
 import './App.css';
 import AddTodo from './components/AddTodo';
+import Layout from './layout/Layout';
+import CentralizedWrapper from './layout/CentralizedWrapper';
+import { Grid } from '@material-ui/core';
+import SideHeader from './layout/SideHeader';
 
 const App = () => {
   const [todos, setTodos] = useState<TodoType[]>([
@@ -25,10 +29,17 @@ const App = () => {
   };
 
   return (
-    <>
-      <AddTodo handleAddTodo={handleAddTodo} />
-      <TodoList setTodos={setTodos} todos={todos} />
-    </>
+    <Grid container direction="row" style={{ height: '100vh' }}>
+      <SideHeader />
+      <Layout>
+        <CentralizedWrapper>
+          <AddTodo handleAddTodo={handleAddTodo} />
+        </CentralizedWrapper>
+        <CentralizedWrapper>
+          <TodoList setTodos={setTodos} todos={todos} />
+        </CentralizedWrapper>
+      </Layout>
+    </Grid>
   );
 };
 
