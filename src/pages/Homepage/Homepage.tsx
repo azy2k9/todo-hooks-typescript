@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import TodoList from './components/TodoList/TodoList';
-import './App.css';
-import AddTodo from './components/AddTodo';
-import Layout from './layout/Layout';
-import CentralizedWrapper from './layout/CentralizedWrapper';
+import TodoList from '../../components/TodoList';
+import './Homepage.css';
+import AddTodo from '../../components/AddTodo';
+import Layout from '../../layout/Layout';
+import CentralizedWrapper from '../../layout/CentralizedWrapper';
 import { Grid } from '@material-ui/core';
-import SideHeader from './layout/SideHeader';
+import SideHeader from '../../layout/SideHeader';
 
-const App = () => {
+const Homepage = () => {
   const [todos, setTodos] = useState<TodoType[]>([
     { id: 1, todo: 'Clean the car', completed_status: false },
     { id: 2, todo: 'Buy a pressure washer', completed_status: false },
@@ -43,4 +43,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Homepage;
